@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Experience - Vinay Patil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: #3498db;
+        }
+        
+        .main-content {
+            margin-top: 80px;
+            padding: 40px 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #3498db, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #3498db, #e74c3c);
+        }
+        
+        .experience-item {
+            position: relative;
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-left: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 2rem;
+            width: 1rem;
+            height: 1rem;
+            background: #3498db;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #3498db;
+        }
+        
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .role-title {
+            font-size: 1.2rem;
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        .duration {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .achievements {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .achievements li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            background: linear-gradient(45deg, #f39c12, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .timeline {
+                padding-left: 1rem;
+            }
+            
+            .timeline::before {
+                left: 0.5rem;
+            }
+            
+            .experience-item {
+                margin-left: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .experience-item::before {
+                left: -2rem;
+            }
+            
+            .company-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Vinay Patil</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="experience.html" class="active">Experience</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Professional Experience</h1>
+                <p class="page-subtitle">A journey through 20+ years of technology leadership, from startup co-founder to enterprise engineering leader.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">AppSentinels</div>
+                            <div class="role-title">Director of Engineering</div>
+                        </div>
+                        <div class="duration">Apr 2022 – Present</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Collaborate closely with co-founders to shape product vision and engineering strategy</li>
+                        <li>Lead product roadmap with ownership of visibility, threat hunting, LLM integration, and MCP server</li>
+                        <li>Scaled our API security platform to process over <span class="highlight">300 million API traffic events/day</span></li>
+                        <li>Built and mentored a high-performing engineering team from the ground up</li>
+                        <li>Introduced AI-augmented development workflows to improve velocity, quality, and scalability</li>
+                        <li>Align technical execution with broader business goals through cross-functional leadership</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">Twilio Inc.</div>
+                            <div class="role-title">Engineering Leader – Flex Team</div>
+                        </div>
+                        <div class="duration">Apr 2021 – Mar 2022</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Worked on Twilio Flex, a cloud-based contact center platform, as part of the Solutions Engineering group</li>
+                        <li>Owned and maintained KYC services, ensuring high availability and performance</li>
+                        <li>Led database migration from AWS self-managed infrastructure to AWS managed services (RDS/Aurora)</li>
+                        <li>Contributed to cloud cost optimization and operational simplification</li>
+                        <li>Collaborated with cross-functional teams to enhance integration, performance, and operational resilience</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">Cisco Systems India Pvt Ltd</div>
+                            <div class="role-title">Engineering Leader, Security Business Group</div>
+                        </div>
+                        <div class="duration">Nov 2020 – Apr 2022</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Led teams for Next-Gen Firewall (NGFW) with focus on Intrusion Detection & Prevention (Snort)</li>
+                        <li>Directed cloud-native transformation of legacy systems for scalable, containerized deployments</li>
+                        <li>Drove IPv6 feature adoption and core engine upgrades across distributed security appliances</li>
+                        <li>Implemented observability using Prometheus/Grafana</li>
+                        <li>Collaborated with global engineering, TAC, and product teams to deliver secure, performant software</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">NGX Technologies Pvt Ltd</div>
+                            <div class="role-title">Co-Founder & Executive Director</div>
+                        </div>
+                        <div class="duration">Sep 2007 – Nov 2020</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Built and scaled a software-first tech company focused on cloud applications, DevOps, and developer tools</li>
+                        <li>Designed and launched SaaS platforms, internal automation frameworks, and orchestration tools</li>
+                        <li>Architected solutions using microservices, API gateways, and cloud-based CI/CD pipelines</li>
+                        <li>Led customer engagements and agile engineering processes</li>
+                        <li>Grew the company from <span class="highlight">2 to 75+ employees</span> over 13 years</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">Earlier Roles</div>
+                            <div class="role-title">Software Engineer</div>
+                        </div>
+                        <div class="duration">2005 – 2007</div>
+                    </div>
+                    <ul class="achievements">
+                        <li><strong>Kyocera Wireless</strong> (2006–2007) - Software Engineer focused on mobile communication technologies</li>
+                        <li><strong>Encore Software</strong> (2005–2006) - Software Engineer working on enterprise applications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

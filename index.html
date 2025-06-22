@@ -5,65 +5,310 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinay Patil - Professional Portfolio</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
+            padding: 0 2rem;
         }
-        .container {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 500px;
-            margin: 2rem;
-        }
-        h1 {
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: #2c3e50;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .hero {
+            padding: 120px 2rem 80px;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        p {
-            color: #555;
-            font-size: 1.2rem;
+        
+        .hero .subtitle {
+            font-size: 1.8rem;
             margin-bottom: 2rem;
-            line-height: 1.6;
+            opacity: 0.9;
         }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             text-decoration: none;
             padding: 15px 30px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
+        
         .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
-        .subtitle {
-            color: #3498db;
-            font-size: 1.4rem;
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #c0392b 0%, #e67e22 100%);
+        }
+        
+        .features {
+            background: white;
+            padding: 80px 2rem;
+        }
+        
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
             margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 60px 2rem;
+            text-align: center;
+        }
+        
+        .stats-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat {
+            padding: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Vinay Patil</h1>
-        <div class="subtitle">Engineering & Technology Leader</div>
-        <p>Welcome to my professional portfolio. I'm a visionary technology leader with 20+ years of experience in cloud platforms, cybersecurity, and product innovation.</p>
-        <a href="resume.html" class="btn">View My Resume</a>
-    </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Vinay Patil</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <h1>Vinay Patil</h1>
+            <div class="subtitle">Engineering & Technology Leader</div>
+            <p>Visionary technology leader with 20+ years of experience scaling teams, building cloud-native platforms, and delivering secure, distributed systems. Expert in cybersecurity, product innovation, and AI-driven development.</p>
+            <div class="cta-buttons">
+                <a href="resume.html" class="btn btn-primary">View Resume</a>
+                <a href="experience.html" class="btn">Experience</a>
+                <a href="projects.html" class="btn">Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-container">
+            <h2>Core Expertise</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Leadership & Strategy</h3>
+                    <p>Led global teams, scaled organizations from startup to 75+ employees, and drove strategic technology decisions across multiple domains.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3>Cloud-Native Architecture</h3>
+                    <p>Deep expertise in Kubernetes, Docker, microservices, and observability using modern cloud platforms like AWS, GCP, and Azure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Cybersecurity Expert</h3>
+                    <p>Led development of Cisco's Next-Gen Firewall (NGFW) with Snort-based IDS/IPS, focusing on advanced threat detection and prevention.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Driven Development</h3>
+                    <p>Pioneer in leveraging LLMs and AI-augmented workflows to boost productivity, reduce costs, and improve software quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">300M+</div>
+                    <div class="stat-label">API Events/Day</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">75+</div>
+                    <div class="stat-label">Team Members Scaled</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Major Companies</div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

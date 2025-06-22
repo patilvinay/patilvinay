@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Vinay Patil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: #3498db;
+        }
+        
+        .main-content {
+            margin-top: 80px;
+            padding: 40px 2rem;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #3498db, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #e74c3c);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: #e74c3c;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+        
+        .cta-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #e74c3c, #f39c12);
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #c0392b, #e67e22);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .contact-card {
+                padding: 2rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Vinay Patil</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="contact-card">
+                <h1 class="page-title">Let's Connect</h1>
+                <p class="page-subtitle">Ready to discuss technology leadership, cloud architecture, or potential collaborations? I'd love to hear from you.</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-title">Phone</div>
+                        <div class="contact-info">
+                            <a href="tel:+919886330804">+91-9886330804</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-title">Email</div>
+                        <div class="contact-info">
+                            <a href="mailto:vinay.hpatil@gmail.com">vinay.hpatil@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-title">LinkedIn</div>
+                        <div class="contact-info">
+                            <a href="https://linkedin.com/in/patilvinay" target="_blank">Connect on LinkedIn</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🐙</div>
+                        <div class="contact-title">GitHub</div>
+                        <div class="contact-info">
+                            <a href="https://github.com/patilvinay" target="_blank">View Code Projects</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <h3>Interested in Working Together?</h3>
+                    <p>Whether you're looking for technology leadership, cloud architecture expertise, or strategic guidance on scaling engineering teams, I'm here to help drive your vision forward.</p>
+                    <div class="cta-buttons">
+                        <a href="mailto:vinay.hpatil@gmail.com?subject=Partnership Opportunity" class="btn btn-primary">Email Me</a>
+                        <a href="resume.html" class="btn">Download Resume</a>
+                        <a href="tel:+919886330804" class="btn">Call Now</a>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/patilvinay" target="_blank" class="social-link" title="LinkedIn">💼</a>
+                    <a href="https://github.com/patilvinay" target="_blank" class="social-link" title="GitHub">🐙</a>
+                    <a href="mailto:vinay.hpatil@gmail.com" class="social-link" title="Email">✉️</a>
+                    <a href="tel:+919886330804" class="social-link" title="Phone">📱</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
