@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinay Patil - Engineering & Technology Leader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        .resume-container {
+            max-width: 100%;
+            margin: 0;
+            background: white;
+            border-radius: 0;
+            box-shadow: none;
+            overflow: visible;
+            animation: none;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .name {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .contact-info {
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .contact-info span {
+            margin: 0 15px;
+            display: inline-block;
+        }
+
+        .title {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ecf0f1;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 25px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.6em;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .executive-profile {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+
+        .executive-profile p {
+            font-size: 1.15em;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .strengths-grid {
+            display: flex;
+            flex-direction: row;
+            gap: 16.5px;
+            margin-bottom: 22px;
+            width: 100%;
+        }
+
+        .strength-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16.5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .strength-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #e74c3c, #f39c12);
+        }
+
+        .strength-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .strength-card h4 {
+            color: #2c3e50;
+            margin-bottom: 13.2px;
+            font-size: 1.2em;
+        }
+
+        .strength-card ul {
+            list-style: none;
+        }
+
+        .strength-card li {
+            padding: 4.4px 0;
+            padding-left: 18px;
+            position: relative;
+            color: #555;
+            font-size: 1.05em;
+        }
+
+        .strength-card li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-size: 0.8em;
+        }
+
+        .experience-item {
+            background: white;
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .company-name {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .role-title {
+            font-size: 1.1em;
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .duration {
+            background: #ecf0f1;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .achievements {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .achievements li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.5;
+            font-size: 1.05em;
+        }
+
+        .achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #2c3e50;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: 1px solid #dee2e6;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .project-card h4 {
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .project-card p {
+            line-height: 1.5;
+            opacity: 0.8;
+            font-size: 1.05em;
+        }
+
+        .education {
+            background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
+            color: #2c3e50;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+
+        .education h4 {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #f39c12, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .header {
+                padding: 12px;
+            }
+
+            .name {
+                font-size: 1.4em;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            .company-header {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .contact-info span {
+                display: block;
+                margin: 3px 0;
+            }
+            
+            .strengths-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            
+            .strength-card {
+                padding: 12px;
+            }
+            
+            .strength-card h4 {
+                font-size: 1em;
+            }
+            
+            .strength-card li {
+                font-size: 0.85em;
+                line-height: 1.3;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .strengths-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                font-size: 12px;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .header {
+                padding: 20px;
+                background: #2c3e50 !important;
+                color: white !important;
+            }
+            
+            .header::before {
+                display: none;
+            }
+            
+            .strength-card,
+            .experience-item,
+            .project-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                box-shadow: none;
+            }
+            
+            .section {
+                margin-bottom: 20px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.4em;
+            }
+            
+            .company-name {
+                font-size: 1.2em;
+            }
+            
+            .role-title {
+                font-size: 1.05em;
+            }
+            
+            .achievements li,
+            .strength-card li {
+                font-size: 0.9em;
+                line-height: 1.4;
+            }
+            
+            .strengths-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .project-card {
+                padding: 12px;
+            }
+            
+            .project-card h4 {
+                font-size: 1em;
+            }
+            
+            .project-card p {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">VINAY PATIL</h1>
+                <div class="contact-info">
+                    <span>📱 +91-9886330804</span>
+                    <span>✉️ vinay.hpatil@gmail.com</span>
+                </div>
+                <div class="title">Engineering & Technology Leader</div>
+                <div class="subtitle">Driving Scalable Cloud Platforms, Cybersecurity Solutions, and Product Innovation</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <div class="executive-profile">
+                    <p>Visionary and execution-focused technology leader with <span class="highlight">20+ years</span> of experience scaling teams, building cloud-native platforms, and delivering secure, distributed systems. Proven ability to lead engineering strategy, drive architecture decisions, and deliver impactful solutions across startups and enterprises.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Executive Profile</h2>
+                <div class="achievements">
+                    <li><strong>Leadership + Technical Depth:</strong> Led global teams across security, observability, microservices, and cloud infrastructure.</li>
+                    <li><strong>Startup to Scale:</strong> Co-founded NGX Technologies, growing from 2 to 75+ employees.</li>
+                    <li><strong>Ground-Up Builder:</strong> Proven ability to build teams, products, and engineering organizations from scratch to production scale.</li>
+                    <li><strong>Cloud-Native Mindset:</strong> Deep experience in Kubernetes, Docker, microservices, observability (Prometheus/Grafana), AWS, GCP, Azure.</li>
+                    <li><strong>AI-Driven Software Development:</strong> Leveraged LLMs to build AI-augmented workflows that improve productivity and reduce cost.</li>
+                    <li><strong>Security Expert:</strong> Led development for Cisco's NGFW (Snort-based IDS/IPS).</li>
+                    <li><strong>Product Builder:</strong> Delivered SaaS products from concept to market.</li>
+                    <li><strong>Mentorship & Culture:</strong> Built high-performing teams and led cloud-first transformations.</li>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Core Strengths</h2>
+                <div class="strengths-grid">
+                    <div class="strength-card">
+                        <h4>Leadership & Strategy</h4>
+                        <ul>
+                            <li>Vision & Roadmaps</li>
+                            <li>Org & Team Scaling</li>
+                            <li>Cross-Functional Collaboration</li>
+                            <li>Product Innovation</li>
+                            <li>Agile Delivery & DevOps</li>
+                            <li>Mentorship & Performance Mgmt</li>
+                        </ul>
+                    </div>
+                    <div class="strength-card">
+                        <h4>Engineering & Delivery</h4>
+                        <ul>
+                            <li>Scalable Platform Architecture</li>
+                            <li>Cloud-Native Development</li>
+                            <li>Observability & SRE Practices</li>
+                            <li>Security Engineering (NGFW/IDS)</li>
+                            <li>SaaS & API Platform Development</li>
+                            <li>Customer-Focused Engineering</li>
+                        </ul>
+                    </div>
+                    <div class="strength-card">
+                        <h4>Technical Stack</h4>
+                        <ul>
+                            <li>Kubernetes, Docker, Istio, Kafka</li>
+                            <li>AWS, DigitalOcean, GitLab CI/CD</li>
+                            <li>Prometheus, Grafana, Ansible</li>
+                            <li>Snort, NGINX, Flask, NodeJS</li>
+                            <li>ReactJS, Angular, MongoDB, Postgres</li>
+                            <li>Python, JS, Express, RESTful APIs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">AppSentinels</div>
+                            <div class="role-title">Director of Engineering</div>
+                        </div>
+                        <div class="duration">Apr 2022 – Present</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Collaborate closely with co-founders to shape product vision and engineering strategy.</li>
+                        <li>Lead product roadmap with ownership of visibility, threat hunting, LLM integration, and MCP server.</li>
+                        <li>Scaled our API security platform to process over <span class="highlight">300 million API traffic events/day</span>.</li>
+                        <li>Built and mentored a high-performing engineering team from the ground up.</li>
+                        <li>Introduced AI-augmented development workflows to improve velocity, quality, and scalability.</li>
+                        <li>Align technical execution with broader business goals through cross-functional leadership.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">Twilio Inc.</div>
+                            <div class="role-title">Engineering Leader – Flex Team</div>
+                        </div>
+                        <div class="duration">Apr 2021 – Mar 2022</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Worked on Twilio Flex, a cloud-based contact center platform, as part of the Solutions Engineering group.</li>
+                        <li>Owned and maintained KYC services, ensuring high availability and performance.</li>
+                        <li>Led database migration from AWS self-managed infrastructure to AWS managed services (RDS/Aurora), contributing to cloud cost optimization and operational simplification.</li>
+                        <li>Collaborated with cross-functional teams to enhance integration, performance, and operational resilience.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">Cisco Systems India Pvt Ltd</div>
+                            <div class="role-title">Engineering Leader, Security Business Group</div>
+                        </div>
+                        <div class="duration">Nov 2020 – Apr 2022</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Led teams for Next-Gen Firewall (NGFW) with focus on Intrusion Detection & Prevention (Snort).</li>
+                        <li>Directed cloud-native transformation of legacy systems for scalable, containerized deployments.</li>
+                        <li>Drove IPv6 feature adoption and core engine upgrades across distributed security appliances.</li>
+                        <li>Implemented observability using Prometheus/Grafana.</li>
+                        <li>Collaborated with global engineering, TAC, and product teams to deliver secure, performant software.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">NGX Technologies Pvt Ltd</div>
+                            <div class="role-title">Co-Founder & Executive Director</div>
+                        </div>
+                        <div class="duration">Sep 2007 – Nov 2020</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Built and scaled a software-first tech company focused on cloud applications, DevOps, and developer tools.</li>
+                        <li>Designed and launched SaaS platforms, internal automation frameworks, and orchestration tools.</li>
+                        <li>Architected solutions using microservices, API gateways, and cloud-based CI/CD pipelines.</li>
+                        <li>Led customer engagements and agile engineering processes.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">Earlier Roles</div>
+                            <div class="role-title">Software Engineer</div>
+                        </div>
+                        <div class="duration">2005 – 2007</div>
+                    </div>
+                    <ul class="achievements">
+                        <li><strong>Kyocera Wireless</strong> (2006–2007) - Software Engineer</li>
+                        <li><strong>Encore Software</strong> (2005–2006) - Software Engineer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education">
+                    <h4>Bachelor of Engineering – Electronics & Communication</h4>
+                    <p>BVB College of Engineering, Hubli – VTU Belgaum (2004)</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Notable Projects & Initiatives</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h4>AI-Augmented Development @ AppSentinels</h4>
+                        <p>Led organization-wide adoption of LLM-powered development workflows to boost productivity and reduce time-to-delivery.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Cloud Cost Optimization @ Twilio</h4>
+                        <p>Migrated KYC systems from AWS self-managed databases to managed services, improving efficiency and reducing infrastructure costs.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Cloud-First Transition @ Cisco</h4>
+                        <p>Enabled smooth shift from monolith to containerized deployments.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Observability Stack Deployment</h4>
+                        <p>Built a metrics-driven culture through integration of Prometheus and Grafana.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Security Protocol Expansion</h4>
+                        <p>Spearheaded IPv6 integration for Snort IDS/IPS engine.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Developer Automation Tooling</h4>
+                        <p>Authored KALPA, a YAML-based scripting language for internal automation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
